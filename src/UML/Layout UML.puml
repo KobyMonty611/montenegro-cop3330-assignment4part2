@@ -1,0 +1,104 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class App
+{
+    +main()
+    +start()
+}
+
+class GetSetItems
+{
+    - String Description
+    - String DueDate
+    - String Completed
+
+    +getDescription()
+    +setDescription()
+
+    +getDueDate()
+    +setDueDate()
+
+    +getCompleted()
+    +setCompleted()
+
+}
+
+class ListMenuController
+{
+    - Boolean booleanShowAll
+    - Boolean booleanShowIncomplete
+    - Boolean booleanShowComplete
+
+    - TableView ViewTheTable
+    - TableColumn DescriptionColumn
+    - TableColumn DueDateColumn
+    - TableColumn CompletedColumn
+
+    - TextField AddDescriptionText
+    - TextField AddDueDateText
+    - TextField EditDescriptionText
+    - TextField EditDueDateText
+    - TextField LoadListText
+    - TextField SaveListText
+
+    -ObservableList<GetSetItems> dataList
+    -ObservableList<GetSetItems> incompleteList
+    -ObservableList<GetSetItems> completeList
+
+
+
+    +initialize()
+
+    +AddAnItem()
+    +ClickedAddItem()
+    +DeleteAnItem()
+    +ClickedDeleteAnItem()
+    +ClearList()
+    +ClickedClearList()
+
+    +EditDescription()
+    +EditDescriptionClicked()
+    +EditDueDate()
+    +ClickedEditDueDate()
+
+    +MakeIncomplete()
+    +ClickedMakeIncomplete()
+    +MakeComplete()
+    +ClickedMakeComplete()
+
+    +ClickedShowAll()
+    +ClickedShowIncomplete()
+    +ClickedShowComplete()
+
+    +FileDataFormatting()
+    +DataStringFormatting()
+
+    +ClickedSaveList()
+    +ObtainList()
+
+    +LoadAList()
+    +ClickedLoadAList()
+
+    +Make100Items()
+    +ClickedMake100Items()
+
+    +checkDate()
+    +ValidDate()
+    +ValidDescriptionLength()
+
+    +addCompletedItemsList()
+    +addIncompleteItemsList()
+
+    +FindAnotherIndex()
+    +ObtainList()
+
+}
+
+
+
+App --> ListMenuController
+ListMenuController --> GetSetItems
+ListMenuController <-- GetSetItems
+
+@enduml
